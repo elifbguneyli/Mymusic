@@ -1,5 +1,5 @@
 :root {
-  --bg: #0f0b1a;
+  --bg: #e3f6df;
   --panel: #1a1430;
   --panel-border: #2c2450;
   --accent: #a855f7;
@@ -17,7 +17,7 @@
 body {
   margin: 0;
   font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
-  background: radial-gradient(circle at top left, #2a1a4a, var(--bg) 60%);
+  background: radial-gradient(circle at top left, #c9f0c0, var(--bg) 60%);
   color: var(--text);
   min-height: 100vh;
 }
