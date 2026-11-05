@@ -1,0 +1,9 @@
+{
+  "name": "mymusic",
+  "version": "1.0.0",
+  "private": true,
+  "description": "AI music generator powered by SunoAPI.org",
+  "engines": {
+    "node": ">=18"
+  }
+}

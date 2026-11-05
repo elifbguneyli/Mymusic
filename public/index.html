@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MyMusic — AI Song Generator</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page">
+    <header class="topbar">
+      <div class="brand">
+        <span class="logo">&#127925;</span>
+        <span class="brand-name">MyMusic</span>
+      </div>
+      <div class="credits" id="credits">Credits: &mdash;</div>
+    </header>
+
+    <main class="layout">
+      <section class="panel">
+        <h1>Create a song</h1>
+        <p class="subtitle">Describe what you want and let AI do the composing.</p>
+
+        <form id="generate-form">
+          <label class="field">
+            <span>Describe your song</span>
+            <textarea
+              id="prompt"
+              name="prompt"
+              rows="3"
+              placeholder="A dreamy synth-pop anthem about chasing sunsets"
+              required
+            ></textarea>
+          </label>
+
+          <div class="row">
+            <label class="field toggle">
+              <input type="checkbox" id="customMode" name="customMode" />
+              <span>Custom mode</span>
+            </label>
+            <label class="field toggle">
+              <input type="checkbox" id="instrumental" name="instrumental" />
+              <span>Instrumental only</span>
+            </label>
+          </div>
+
+          <div id="custom-fields" class="custom-fields hidden">
+            <label class="field">
+              <span>Title</span>
+              <input type="text" id="title" name="title" maxlength="80" placeholder="Sunset Drive" />
+            </label>
+            <label class="field">
+              <span>Style / genre</span>
+              <input type="text" id="style" name="style" maxlength="1000" placeholder="Synth-pop, dreamy, 110bpm" />
+            </label>
+            <label class="field">
+              <span>Lyrics (optional — leave blank to auto-generate)</span>
+              <textarea id="lyrics" name="lyrics" rows="3" placeholder="[Verse] ..."></textarea>
+            </label>
+            <div class="row">
+              <label class="field">
+                <span>Vocal gender</span>
+                <select id="vocalGender" name="vocalGender">
+                  <option value="">Any</option>
+                  <option value="f">Female</option>
+                  <option value="m">Male</option>
+                </select>
+              </label>
+              <label class="field">
+                <span>Exclude styles</span>
+                <input type="text" id="negativeTags" name="negativeTags" placeholder="Heavy Metal, Upbeat Drums" />
+              </label>
+            </div>
+          </div>
+
+          <label class="field">
+            <span>Model</span>
+            <select id="model" name="model">
+              <option value="V6" selected>V6 — recommended, richest vocals</option>
+              <option value="V6_MINI">V6 Mini — fast &amp; lightweight</option>
+              <option value="V6_WILD">V6 Wild — bold &amp; experimental</option>
+            </select>
+          </label>
+
+          <button type="submit" id="submit-btn">Generate song</button>
+        </form>
+
+        <div id="error" class="error hidden"></div>
+      </section>
+
+      <section class="panel results-panel">
+        <h2>Your tracks</h2>
+        <div id="status-line" class="status-line hidden"></div>
+        <div id="tracks" class="tracks">
+          <p class="empty">Generated songs will show up here.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      Powered by <a href="https://docs.sunoapi.org/" target="_blank" rel="noopener">SunoAPI.org</a>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
